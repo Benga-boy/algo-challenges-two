@@ -57,3 +57,48 @@ function properNounCorrection(noun: string): string {
 
 console.log(properNounCorrection('pARiS'));
 console.log(properNounCorrection('John'));
+
+
+export function depositProfit(deposit: number, rate: number, threshold: number): number {
+  let count = 0
+  let dep = deposit
+
+  while (dep < threshold) {
+    dep = dep * (rate / 100 + 1)
+    count ++
+  }
+
+  return count
+}
+
+console.log(depositProfit(100, 20, 170))
+
+function commonCharacterCount(s1: string, s2: string): number {
+  let result = 0
+
+  s2.split('').forEach(val => {
+    if (s1.split('').includes(val)) {
+      result = result + 1
+    }
+  })
+
+  return result
+}
+
+console.log(commonCharacterCount('aabcc', 'adcaa'));
+
+function isLucky(n: number): boolean {
+  const convertToString = n.toString().split('')
+  let firstTotal = 0
+  let secondTotal = 0
+  const firstHalf = convertToString.slice(0, convertToString.length / 2)
+  const secondHalf = convertToString.slice(convertToString.length / 2)
+
+  firstHalf.forEach(num => firstTotal += parseInt(num))
+  secondHalf.forEach(num => secondTotal += parseInt(num))
+  
+  return firstTotal === secondTotal
+}
+
+console.log(isLucky(1230));
+console.log(isLucky(239017));

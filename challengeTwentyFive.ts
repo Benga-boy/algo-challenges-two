@@ -21,17 +21,3 @@ console.log(characterParity('8'))
 console.log(characterParity('q'))
 
 
-function commonCharacterCount(s1: string, s2: string): number {
-  let result = 0
-
-  s2.split('').forEach(val => {
-    if (s1.split('').includes(val)) {
-      result = result + 1
-    }
-  })
-
-  return result
-}
-
-console.log(commonCharacterCount('aabcc', 'adcaa'));
-
