@@ -11,8 +11,19 @@ function commonCharacterCount(s1: string, s2: string): number {
   const string2: string[] = s2.split('')
   const s1Count = getCharList(string1)
   const s2Count = getCharList(string2)
-  console.log(s1Count)
-  console.log(s2Count)
+  let total = 0
+
+  for (const prop in s1Count) {
+    if (s2Count.hasOwnProperty(prop)) {
+      if(s2Count[prop] < s1Count[prop]) {
+        total += s2Count[prop]
+      } else {
+        total += s1Count[prop]
+      }
+    }
+  }
+
+  return total
 }
 
 function getCharList(word: string[]): object {
